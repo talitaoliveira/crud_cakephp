@@ -1,4 +1,4 @@
-
+<?php echo strtolower($model) ;?>
 
 <?php if(isset($usuarios)) { ?>
 <table class="table table-hover">
@@ -21,10 +21,10 @@
 			<td><?php echo $usuario['Usuario']['login'] ?></td>
 			<td><?php echo $usuario['Usuario']['ramal'] ?></td>
 			<td>
-				<a href="<?php echo $this->base;?>/usuario/editar/<?php echo $usuario["Usuario"]["id"];?>">
+				<a href="<?php echo "ola" ;?>/alterar/<?php echo $usuario["Usuario"]["id"];?>">
 					<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 				</a> |
-				<a href="<?php echo $this->base . '/' . strtolower($modelName) ;?>/excluir/<?php echo $usuario["Usuario"]["id"];?>">
+				<a href="<?php echo strtolower($model) ;?>/excluir/<?php echo $usuario["Usuario"]["id"];?>">
 					<i class="fa fa-trash-o" aria-hidden="true"></i>
 				</a>
 			</td>
@@ -32,5 +32,5 @@
 		<?php } ?>
 	</tbody>
 </table>
-
+<?php echo $this->Paginator->numbers(array('first' => 'Primeira Página'));?>
 <?php } ?>

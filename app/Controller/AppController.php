@@ -32,9 +32,14 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
+	public $paginate = array(
+		'limit' => 10,
+	);
+
 	public function beforeRender(){
 
-		$this->set('modelName', $this->modelClass);
-		$this->set('controllerName', $this->params['controller']);
+		$this->set('model', $this->modelClass);
+		$this->set('controller', $this->params['controller']);
+		$this->set('action', $this->params['action']);
 	}
 }
