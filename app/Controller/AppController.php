@@ -42,4 +42,8 @@ class AppController extends Controller {
 		$this->set('controller', $this->params['controller']);
 		$this->set('action', $this->params['action']);
 	}
+
+	public function beforeFilter(){
+
+	}
 }

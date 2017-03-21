@@ -20,7 +20,7 @@ class UsuariosController extends AppController {
 
 		$this->Paginator->settings = $this->paginate;
 
-		$this->set('usuarios', $this->Paginator->paginate($model));
+		$this->set('lista', $this->Paginator->paginate($model));
 
 	}
 
@@ -34,11 +34,11 @@ class UsuariosController extends AppController {
 
 			$model = $this->modelClass;
 
-			if($this->request->is('post')){
+			if( $this->request->is('post') ){
 
 				$this->$model->create();
 
-				if($this->$model->save($this->request->data)) {
+				if($this->$model->save( $this->request->data ) ) {
 					$this->Session->setFlash('Usuário cadastrado com sucesso!', "Flash/success");
 					return $this->redirect(array("action" => "index"));
 				}
@@ -60,9 +60,14 @@ class UsuariosController extends AppController {
 
 			$model = $this->modelClass;
 
-			if($this->request->is('post') || $this->request->is('put')){
+			if( !$this->$model->exists($id) ){
+				$this->Session->setFlash('Usuário não existe', "Flash/danger");
+				return $this->redirect(array("action" => "index"));
+			}
 
-				$model->id = $id;
+			if( $this->request->is('post') || $this->request->is('put') ){
+
+				$this->$model->id = $id;
 
 				if($this->$model->save($this->request->data)) {
 					$this->Session->setFlash('Usuário alterado com sucesso!', "Flash/success");
@@ -71,6 +76,19 @@ class UsuariosController extends AppController {
 				$this->Session->setFlash('Problema ao alterar usuário!', "Flash/danger");
 
 			}
+
+			$this->request->data = $this->$model->findById($id);
+
+		}catch(Exception $e){
+			echo $e->getMessage();
+		}
+	}
+
+	public function excluir ($id) {
+		try{
+
+			
+			die("aqui");
 
 		}catch(Exception $e){
 			echo $e->getMessage();

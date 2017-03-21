@@ -1,6 +1,6 @@
 <?php echo strtolower($model) ;?>
 
-<?php if(isset($usuarios)) { ?>
+<?php if(isset($lista)) { ?>
 <table class="table table-hover">
 	<thead>
 		<tr>
@@ -13,18 +13,18 @@
 		</tr>
 	</thead>
 	<tbody>
-		<?php foreach ($usuarios as $usuario) { ?>
+		<?php foreach ($lista as $item) { ?>
 		<tr>
-			<td><?php echo $usuario['Usuario']['id'] ?></td>
-			<td><?php echo $usuario['Usuario']['nome'] ?></td>
-			<td><?php echo $usuario['Usuario']['email'] ?></td>
-			<td><?php echo $usuario['Usuario']['login'] ?></td>
-			<td><?php echo $usuario['Usuario']['ramal'] ?></td>
+			<td><?php echo $item['Usuario']['id'] ?></td>
+			<td><?php echo $item['Usuario']['nome'] ?></td>
+			<td><?php echo $item['Usuario']['email'] ?></td>
+			<td><?php echo $item['Usuario']['login'] ?></td>
+			<td><?php echo $item['Usuario']['ramal'] ?></td>
 			<td>
-				<a href="<?php echo "ola" ;?>/alterar/<?php echo $usuario["Usuario"]["id"];?>">
+				<a href="<?php echo $this->Html->url(array("controller" => "usuarios", "action" => "alterar"));?>/<?php echo $item["Usuario"]["id"];?>">
 					<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 				</a> |
-				<a href="<?php echo strtolower($model) ;?>/excluir/<?php echo $usuario["Usuario"]["id"];?>">
+				<a href="<?php echo $this->Html->url(array("controller" => "usuarios", "action" => "excluir"));?>/<?php echo $item["Usuario"]["id"];?>">
 					<i class="fa fa-trash-o" aria-hidden="true"></i>
 				</a>
 			</td>
