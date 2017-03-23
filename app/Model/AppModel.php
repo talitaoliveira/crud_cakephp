@@ -30,4 +30,12 @@ App::uses('Model', 'Model');
  * @package       app.Model
  */
 class AppModel extends Model {
+
+	public function beforeFind($queryData){
+
+		$queryData['conditions'][$this->alias. ".excluido"] = 0;
+
+		return $queryData;
+
+	}
 }

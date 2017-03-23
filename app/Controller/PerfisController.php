@@ -1,12 +1,12 @@
 <?php
 
-class UsuariosController extends AppController {
+class PerfisController extends AppController {
 
 	public $components = array('Paginator');
 
 	public function beforeRender () {
 		parent::beforeRender();
-		$controllerName = "Usuários";
+		$controllerName = "Perfis";
 		$this->set('controllerName', $controllerName);
 	}
 
@@ -87,19 +87,10 @@ class UsuariosController extends AppController {
 	public function excluir ($id) {
 		try{
 
-			$model = $this->modelClass;
+			
+			die("aqui");
 
-			$registro = $this->$model->find('first', array('conditions' => array( 'Usuario.id' => $id )));
-
-			$this->$model->id = $id;
-
-			if($this->$model->saveField('excluido', 1)) {
-				$this->Session->setFlash('Registro excluido com sucesso!', "Flash/success");
-				return $this->redirect(array("action" => "index"));
-			}
-
-
-		}catch (Exception $e){
+		}catch(Exception $e){
 			echo $e->getMessage();
 		}
 	}

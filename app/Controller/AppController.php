@@ -43,7 +43,4 @@ class AppController extends Controller {
 		$this->set('action', $this->params['action']);
 	}
 
-	public function beforeFilter(){
-
-	}
 }

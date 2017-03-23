@@ -38,7 +38,10 @@
 					<a href="<?php echo $this->Html->url(array("controller" => "principal", "action" => "index"));?>"><i class="fa fa-dashboard fa-fw"></i> Home</a>
 				</li>
 				<li>
-					<a href="<?php echo $this->Html->url(array("controller" => "usuarios", "action" => "index"));?>"><i class="fa fa-user" aria-hidden="true"></i></i> Usuário</a>
+					<a href="<?php echo $this->Html->url(array("controller" => "usuarios", "action" => "index"));?>"><i class="fa fa-user" aria-hidden="true"></i> Usuário</a>
+				</li>
+				<li>
+					<a href="<?php echo $this->Html->url(array("controller" => "perfis", "action" => "index"));?>"><i class="fa fa-id-card-o" aria-hidden="true"></i> Perfis</a>
 				</li>
 				<li>
 					<a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Algum menu dropdown<span class="fa arrow"></span></a>
